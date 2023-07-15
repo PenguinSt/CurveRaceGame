@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Ground
+  - vehicle
+  - EndLevel0
+  - toCoin
+  - EagleTrigger
+  - AirTweenTag
+  - Coin100
+  - Coin5
+  - Diamond
+  - Coin25
+  - gasContainer
+  - Coin500
+  - Eagle
+  - Netrogen
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - vehicle
+  - road
+  - dialogs
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 1456903601
+    locked: 0
+  - name: vehicle
+    uniqueID: 2270625881
+    locked: 0
+  - name: Road
+    uniqueID: 3690252801
+    locked: 0
