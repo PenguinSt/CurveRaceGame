@@ -1,0 +1,57 @@
+# codemagic.yaml
+
+workflows:
+  ios:
+    name: iOS Build
+    environment:
+      # Set your desired environment variables here (if any).
+      # Example:
+      # - VARIABLE_NAME: "value"
+
+    # Define the build steps for iOS.
+    scripts:
+      # Step 1: Activate Unity license (if required).
+      - name: Activate Unity License
+        script: |
+          C:\Program Files\Unity\Hub\Editor\2021.3.26f1 activate -- --username JahidJAY --password CH3ch2oh
+
+      # Step 2: Build the iOS Unity project.
+      - name: Build iOS Unity Project
+        script: |
+        
+          C:\Program Files\Unity\Hub\Editor\2021.3.26f1 -batchmode -quit -projectPath E:\ProjectsInHSSd\CurveRaceGame -buildTarget iOS -executeMethod BuildScript.BuildIOS
+
+      # Step 3: Install required dependencies using Cocoapods (if necessary).
+      - name: Install Cocoapods Dependencies
+        script: |
+          # Add script to install Cocoapods dependencies for iOS.
+          # For example:
+           cd E:\ProjectsInHSSd\CurveRaceGame/iOS && pod install
+
+      # Step 4: Build the iOS app using Unity and Xcode.
+      - name: Build iOS App
+        script: |
+          # Add script to build the iOS app using Unity and Xcode.
+          # Example:
+          C:\Program Files\Unity\Hub\Editor\2021.3.26f1 -batchmode -quit -projectPath E:\ProjectsInHSSd\CurveRaceGame -executeMethod BuildScript.BuildIOS
+          # /path/to/Xcode -project E:\ProjectsInHSSd\CurveRaceGame.xcodeproj -scheme CurveRaceGame -configuration Release -archivePath E:\ProjectsInHSSd\CurveRaceGame.xcarchive archive
+
+      # Step 5: Export the IPA file for distribution.
+      - name: Export IPA File
+        script: |
+          # Add script to export the IPA file for distribution.
+          # Example:
+          # /path/to/Xcode -exportArchive -archivePath /path/to/CurveRaceGame.xcarchive -exportPath /path/to/CurveRaceGame.ipa -exportOptionsPlist /path/to/ExportOptions.plist
+
+    # Add post-build steps here if necessary, such as publishing the build artifacts or sending notifications.
+    # For example, uploading the IPA to a storage service or sending an email notification.
+    post-publish:
+      - name: Publish IPA File
+        script: |
+          # Add script to publish the IPA file to a storage service.
+          # Example: using AWS CLI to upload the IPA to an S3 bucket
+          # aws s3 cp /path/to/CurveRaceGame.ipa s3://your-bucket-name/
+
+      # You can add more post-publish steps here if needed.
+
+# You can add more workflows here for other platforms or configurations if desired.
